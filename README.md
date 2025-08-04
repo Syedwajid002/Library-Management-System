@@ -8,7 +8,8 @@ A robust backend system for managing library users, books, and borrowing activit
 
 ## AWS Deployment
 
-I have also deployed the project on AWS EC2 Server on aws linux os and the url you can hit is : http://16.171.24.15:3000/api/{based on functional}
+I have also deployed the project on AWS EC2 Server on aws linux os and the url you can hit is : http://16.171.24.15:3000/api/{based on functionality}
+![Alt text](./image.png)
 
 ## Features
 
