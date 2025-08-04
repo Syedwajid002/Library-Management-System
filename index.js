@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
-const { ApolloServer } = require('apollo-server-express');
-const typeDefs = require('./graphql/Schemas/libraraySchema');
-const resolvers = require('./graphql/resolvers/libraryResolvers');
-
 // REST Routes
 const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/bookRoutes');
@@ -29,7 +25,7 @@ app.use('/api/borrowings', borrowRoutes);
 app.use('/api/reports', reportRoutes);
 
 
-// Connect to DB and start server
+// Connection to DB and starting the server
 const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {

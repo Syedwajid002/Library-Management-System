@@ -9,8 +9,8 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,      // Ensure email uniqueness to avoid duplicate users
-    lowercase: true,   // Store emails in lowercase for consistency
+    unique: true,      
+    lowercase: true,   
     trim: true,
   },
 
@@ -21,11 +21,11 @@ const userSchema = new mongoose.Schema({
 
   role: {
     type: String,
-    enum: ['Admin', 'Member'], // Match roles used in your controllers (case-sensitive)
-    default: 'Member',          // Default role is 'Member', not 'user'
+    enum: ['Admin', 'Member'], 
+    default: 'Member',         
   }
 }, {
-  timestamps: true  // To have createdAt and updatedAt fields automatically
+  timestamps: true  
 });
 
 module.exports = mongoose.model('User', userSchema);

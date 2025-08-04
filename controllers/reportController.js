@@ -1,5 +1,3 @@
-// controllers/reportController.js
-
 const Borrow = require('../models/Borrow');
 const Book = require('../models/Book');
 
@@ -36,8 +34,7 @@ exports.mostBorrowedBooks = async (req, res) => {
 };
 
 
-// {ActiveMembers}
-
+// {ActiveMembers from lib}
 exports.activeMembers = async (req, res) => {
   try {
     const results = await Borrow.aggregate([
@@ -69,18 +66,14 @@ exports.activeMembers = async (req, res) => {
   }
 };
 
-// controllers/reportController.js
-
+//total no of books available and borr0wed
 exports.bookAvailability = async (req, res) => {
   try {
-    // Count total books (all copies)
     const totalBooksData = await Book.aggregate([{ $group: { _id: null, total: { $sum: "$copies" } } }]);
     const totalBooks = totalBooksData[0]?.total || 0;
 
-    // Count borrowed books (all borrow records with status borrowed)
     const borrowedBooks = await Borrow.countDocuments({ status: 'borrowed' });
 
-    // Calculate available books
     const availableBooks = totalBooks - borrowedBooks;
 
     res.json({

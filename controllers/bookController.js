@@ -1,6 +1,6 @@
 const Book = require('../models/Book');
 
-// Add a new book (Admin only)
+// Adding new book by admin 
 exports.addBook = async (req, res) => {
   try {
     const { title, author, ISBN, publicationDate, genre, copies } = req.body;
@@ -14,7 +14,7 @@ exports.addBook = async (req, res) => {
   }
 };
 
-// Update book details (Admin only)
+// Updating book details by admin
 exports.updateBook = async (req, res) => {
   try {
     // console.log("first")
@@ -30,7 +30,7 @@ exports.updateBook = async (req, res) => {
   }
 };
 
-// Delete a book (Admin only)
+// Deleting book By admin
 exports.deleteBook = async (req, res) => {
   try {
     // console.log("first")
@@ -42,23 +42,7 @@ exports.deleteBook = async (req, res) => {
   }
 };
 
-// List and filter books
-// exports.listBooks = async (req, res) => {
-//   try {
-//     const { genre, author, page = 1, limit = 10 } = req.query;
-//     const filter = {};
-//     if (genre) filter.genre = genre;
-//     if (author) filter.author = author;
-
-//     const books = await Book.find(filter)
-//       .skip((page - 1) * limit)
-//       .limit(Number(limit));
-//     res.json(books);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
-
+//getaAllBooks by admin
 exports.listBooks = async (req, res) => {
   try {
     const books = await Book.find();
